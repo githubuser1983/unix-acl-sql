@@ -1,7 +1,7 @@
 # unix-acl-sql
 This repository contains a sqlite-schema and an example database to handle unix-like acl (access control lists) hence file premissions for users
 
-To use it, download the file "galois.db" and then open sqlite3.
+To use it, download the file "galois.DB" and then open sqlite3.
     >.read galois.db
     >select file_id,uid as user_id,path,can_write,can_read,can_execute from global_rights;
     >select file_id,uid as user_id,path,can_write,can_read,can_execute from global_rights where user_id=3 and file_id = 8;
