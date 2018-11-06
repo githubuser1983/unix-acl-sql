@@ -6,6 +6,38 @@ To use it, download the file "galois.DB" and then open sqlite3.
 * >select file_id,uid as user_id,path,can_write,can_read,can_execute from global_rights;
 * >select file_id,uid as user_id,path,can_write,can_read,can_execute from global_rights where user_id=3 and file_id = 8;
 
+Example query:
+    sqlite> select u.name, gr.path,gr.can_read,gr.can_write,gr.can_execute from global_rights gr left join s_user u on gr.uid = u.uid;
+    root|/galois|1|1|1
+    gauss|/galois|1|0|1
+    conway|/galois|1|0|1
+    root|/galois/home|1|1|1
+    gauss|/galois/home|1|0|1
+    conway|/galois/home|1|0|1
+    root|/galois/models|1|1|1
+    gauss|/galois/models|1|0|1
+    conway|/galois/models|1|0|1
+    root|/galois/home/gauss|1|0|1
+    gauss|/galois/home/gauss|1|1|1
+    conway|/galois/home/gauss|1|0|1
+    root|/galois/home/conway|1|0|1
+    gauss|/galois/home/conway|1|0|1
+    conway|/galois/home/conway|1|1|1
+    root|/galois/home/gauss/boston.pfa|1|0|1
+    gauss|/galois/home/gauss/boston.pfa|1|1|1
+    conway|/galois/home/gauss/boston.pfa|1|0|1
+    root|/galois/home/conway/iris.pfa|1|0|1
+    gauss|/galois/home/conway/iris.pfa|1|0|1
+    conway|/galois/home/conway/iris.pfa|1|1|1
+    root|/galois/models/boston.pfa|1|1|1
+    gauss|/galois/models/boston.pfa|1|1|1
+    conway|/galois/models/boston.pfa|1|0|1
+    root|/galois/models/iris.pfa|1|1|1
+    gauss|/galois/models/iris.pfa|1|1|1
+    conway|/galois/models/iris.pfa|1|0|1
+
+
+
 Use-Cases:
 This schema  could be used to develop REST-APIS where 
    * each URL like /galois/home/gauss is considered like a unix directory
