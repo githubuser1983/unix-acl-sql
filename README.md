@@ -7,6 +7,7 @@ To use it, download the file "galois.DB" and then open sqlite3.
 * >select file_id,uid as user_id,path,can_write,can_read,can_execute from global_rights where user_id=3 and file_id = 8;
 
 Example query:
+
     sqlite> select u.name, gr.path,gr.can_read,gr.can_write,gr.can_execute from global_rights gr left join s_user u on gr.uid = u.uid;
     root|/galois|1|1|1
     gauss|/galois|1|0|1
